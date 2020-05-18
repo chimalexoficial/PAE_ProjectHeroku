@@ -1,0 +1,58 @@
+<body>
+    <div class="container">
+        <div class="row profile">
+            <div class="col-md-4">
+                <div class="profile-sidebar">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic d-flex justify-content-center">
+                        <img [src]="user.foto"
+                            class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            {{user.nombre}} {{user.apellidos}} 
+                        </div>
+                        <div class="profile-usertitle-job">
+                            {{user.profesion}}
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <a type="button" class="btn btn-p btn-sm">Favoritos</a>
+                        <a type="button" routerLink="/chat/conv/{{profId}}/{{userId}}" class="btn btn-p btn-sm">Chat</a>
+                        <a type="button" routerLink="/agenda" class="btn btn-p btn-sm">Agenda</a>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu panel panel-default">
+                        <ul class="list-group">
+                            <li class="list-group-item text-muted justify-content-between">Detalles</li>
+                            <li class="list-group-item d-flex justify-content-between"><span class="pull-left"><strong>Trabajos</strong></span>{{user.trabajosRealizados}}</li> <!-- Traer trabajos del back-->
+                            <li class="list-group-item d-flex justify-content-between"><span class="pull-left"><strong>Calificación</strong></span>{{user.calificacion}}</li> <!-- Traer calificación del back-->
+                            <li class="list-group-item d-flex justify-content-between"><span class="pull-left"><strong>Precio por hora</strong></span>${{user.precioPorHora}}</li> <!-- Traer precio del back-->
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+            </div>
+            <div class="col-md-8 panel panel-default">
+                <div class="profile-content panel panel-heading">
+                    <h4>Acerca de...</h4>
+                    <div class="panel panel-body">
+                        <p id = "professionalp">
+                            {{user.descripcion}}
+                        </p>
+                    </div>
+                </div>
+                <div class="panel panel-heading"> <!-- NgFor scores -->
+                    <h4>Calificaciones</h4>
+                    <app-score-list></app-score-list>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
